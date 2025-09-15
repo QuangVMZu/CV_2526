@@ -206,23 +206,39 @@
             }
 
 
+            /* Timeline: vẽ trục bằng ::before */
             .timeline{
-                position:relative;
-                margin-left:14px;
-                border-left:2px solid #d7deea;
-                padding-left:14px;
+                position: relative;
+                padding-left: 28px;              /* chừa chỗ cho trục + dot */
             }
-            .timeline .dot{
-                position:absolute;
-                left:-6px;
-                top:6px;
-                width:10px;
-                height:10px;
-                background:var(--accent);
-                border-radius:50%;
+            .timeline::before{
+                content: "";
+                position: absolute;
+                left: 10px;                      /* Vị trí trục dọc */
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: #d7deea;             /* màu “thanh dài” */
             }
+
+            /* Mỗi item có dot đặt đúng lên trục */
             .timeline .item{
-                margin-bottom:18px;
+                position: relative;
+                margin-bottom: 18px;
+            }
+
+            .timeline .dot{
+                position: absolute;
+                left: -17px;                      /* trùng với .timeline::before */
+                top: 2px;                        /* chỉnh cao/thấp của dot cho từng item */
+                width: 12px;
+                height: 12px;
+                margin-left: -6px;               /* dịch nửa rộng → tâm dot nằm đúng trên trục */
+                background: var(--accent);
+                border-radius: 50%;
+                /* optional: cho nổi bật hơn */
+                border: 2px solid #fff;          /* viền trắng */
+                box-shadow: 0 0 0 2px #d7deea;   /* viền mỏng cùng màu trục */
             }
             .timeline h5{
                 margin:0;
@@ -415,14 +431,14 @@
                         <div class="side-label">Core Skills</div>
                         <div>
                             <span class="chip">Java (Servlets, JSP, Maven, Spring)</span>
-							<span class="chip">SQL (MySQL / SQL Server)</span><br>
+                            <span class="chip">SQL (MySQL / SQL Server)</span><br>
                             <span class="chip">HTML</span>
                             <span class="chip">CSS</span>
                             <span class="chip">JavaScript</span>
                             <span class="chip">WordPress</span>
-							<span class="chip">C / C++</span>
+                            <span class="chip">C / C++</span>
                             <span class="chip">Git / GitHub</span>
-							
+
                         </div>
                     </div>
 
@@ -430,7 +446,7 @@
                         <div class="side-label">Skill Levels</div>
                         <div class="kv"><span>Java</span><span>75%</span></div>
                         <div class="bar"><span style="width:75%"></span></div>
-						<div class="kv"><span>SQL</span><span>70%</span></div>
+                        <div class="kv"><span>SQL</span><span>70%</span></div>
                         <div class="bar"><span style="width:70%"></span></div>
                         <div class="kv"><span>HTML / CSS</span><span>65%</span></div>
                         <div class="bar"><span style="width:65%"></span></div>
@@ -438,9 +454,9 @@
                         <div class="bar"><span style="width:65%"></span></div>
                         <div class="kv"><span>WordPress</span><span>60%</span></div>
                         <div class="bar"><span style="width:60%"></span></div>
-						<div class="kv"><span>C / C++</span><span>55%</span></div>
+                        <div class="kv"><span>C / C++</span><span>55%</span></div>
                         <div class="bar"><span style="width:55%"></span></div>
-						<div class="kv"><span>Git / GitHub</span><span>55%</span></div>
+                        <div class="kv"><span>Git / GitHub</span><span>55%</span></div>
                         <div class="bar"><span style="width:55%"></span></div>
                     </div>
 
@@ -512,25 +528,25 @@
                                 </div>
                             </div>
                         </section>
-<!--
-                        <section class="extra-section">
-                            <div class="title mb-2"><span class="tick"></span>Additional Information</div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="fw-semibold">Languages</div>
-                                    <div class="muted">English (B2), Japanese (Basic)</div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="fw-semibold">Professional Interests</div>
-                                    <div class="muted">Java Web, Spring, Databases, Basic DevOps</div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="mt-3">
-                        <button class="btn btn-dark btn-sm btn-print" onclick="window.print()"><i class="bi bi-printer me-1"></i> Print / Save PDF</button>
-                    </div>-->
+                        <!--
+                                                <section class="extra-section">
+                                                    <div class="title mb-2"><span class="tick"></span>Additional Information</div>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="fw-semibold">Languages</div>
+                                                            <div class="muted">English (B2), Japanese (Basic)</div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="fw-semibold">Professional Interests</div>
+                                                            <div class="muted">Java Web, Spring, Databases, Basic DevOps</div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                        
+                                            <div class="mt-3">
+                                                <button class="btn btn-dark btn-sm btn-print" onclick="window.print()"><i class="bi bi-printer me-1"></i> Print / Save PDF</button>
+                                            </div>-->
                 </main>
             </div>
         </div>
