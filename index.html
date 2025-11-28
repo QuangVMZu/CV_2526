@@ -1,578 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VU MINH QUANG · Intern Java Backend / Java Web</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>VU MINH QUANG · Intern Java Backend / Java Web</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        :root{
-            --ink:#0f172a;
-            --muted:#5b667a;
-            --rule:#e6e8ef;
-            --paper:#ffffff;
-            --accent:#0b3a6e;
-            --accent-2:#12497f;
-        }
-        body{
-            font-family:Inter, sans-serif;
-            background:#f5f7fb;
-            color:var(--ink);
-            line-height:1.45;
-            margin:0;
-        }
-        .sheet{
-            width:210mm;
-            min-height:297mm;
-            margin:16px auto;
-            background:var(--paper);
-            border:1px solid #dfe3ee;
-            box-shadow:0 8px 30px rgba(12,20,33,.08);
-            display:flex;
-            flex-direction:column;
-        }
-
-        /* HEADER */
-        .header{
-            padding:18px 24px;
-            border-bottom:3px solid var(--accent);
-            background:#fff;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            flex-wrap:wrap;
-        }
-        .header-left{
-            flex:1;
-            min-width:200px;
-        }
-        .header h1{
-            font-weight:800;
-            font-size:26px;
-            margin:0;
-        }
-        .header .role{
-            color:var(--accent);
-            font-size:15px;
-            font-weight:600;
-        }
-        .contact{
-            font-size:13px;
-            color:var(--muted);
-            margin-top:6px;
-            display:flex;
-            flex-wrap:wrap;
-            gap:16px;
-        }
-
-        .social-links{
-            margin-top:10px;
-            display:flex;
-            gap:12px;
-        }
-        .social-links a{
-            display:inline-flex;
-            align-items:center;
-            gap:6px;
-            font-size:13px;
-            font-weight:600;
-            color:var(--accent);
-            text-decoration:none;
-            border:1px solid var(--accent);
-            border-radius:20px;
-            padding:4px 10px;
-            transition:all .2s;
-        }
-        .social-links a:hover{
-            background:var(--accent);
-            color:#fff;
-        }
-
-        .avatar{
-            width:90px;
-            height:108px;
-            border-radius:8px;
-            border:1px solid var(--rule);
-            overflow:hidden;
-            background:#fff;
-        }
-        .avatar img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-        }
-
-        /* BODY */
-        .body{
-            display:grid;
-            grid-template-columns: 32% 68%;
-            flex-grow:1;
-        }
-        aside{
-            border-right:1px solid var(--rule);
-            padding:18px;
-            font-size:13px;
-        }
-        main{
-            padding:20px 24px;
-            font-size:13.5px;
-            display:flex;
-            flex-direction:column;
-            justify-content:space-between;
-        }
-
-        .side-label{
-            font-size:11px;
-            text-transform:uppercase;
-            font-weight:700;
-            color:var(--accent);
-            margin-bottom:6px;
-            letter-spacing:.5px;
-        }
-        .side-block{
-            margin-bottom:18px;
-        }
-        .chip{
-            border:1px solid #cfd6e3;
-            border-radius:999px;
-            padding:4px 10px;
-            font-size:12px;
-            background:#f6f8fc;
-            display:inline-block;
-            margin:3px;
-            transition:all .2s ease;
-            cursor:pointer;
-        }
-        .chip:hover{
-            background:#24292f;
-            color:#fff;
-            border-color:#24292f;
-        }
-
-        .kv{
-            display:flex;
-            justify-content:space-between;
-            margin-bottom:4px;
-        }
-        .bar{
-            height:4px;
-            background:#e7ecf5;
-            border-radius:999px;
-            overflow:hidden;
-            margin-bottom:6px;
-        }
-        .bar span{
-            display:block;
-            height:100%;
-            background: linear-gradient(90deg,var(--accent),var(--accent-2));
-            border-radius:999px;
-        }
-
-        .title{
-            text-transform:uppercase;
-            font-weight:800;
-            font-size:14px;
-            margin-bottom:8px;
-            display:flex;
-            align-items:center;
-            gap:6px;
-        }
-        .title .tick{
-            width:6px;
-            height:18px;
-            background:var(--accent);
-            border-radius:2px;
-        }
-        .objective{
-            border:1px solid var(--rule);
-            border-left:4px solid var(--accent);
-            padding:10px 12px;
-            border-radius:6px;
-            background:#fff;
-            font-size:13.5px;
-        }
-
-        /* Timeline */
-        .timeline{
-            position: relative;
-            padding-left: 28px;
-        }
-        .timeline::before{
-            content: "";
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #d7deea;
-        }
-        .timeline .item{
-            position: relative;
-            margin-bottom: 18px;
-        }
-        .timeline .dot{
-            position: absolute;
-            left: -17px;
-            top: 2px;
-            width: 12px;
-            height: 12px;
-            margin-left: -6px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 0 0 2px #d7deea;
-        }
-        .timeline h5{
-            margin:0;
-            font-size:14px;
-            font-weight:700;
-        }
-        .timeline .muted{
-            color:var(--muted);
-            font-size:12.5px;
-            margin-bottom:6px;
-        }
-        .timeline ul{
-            margin:0;
-            padding-left:16px;
-        }
-        .timeline ul li{
-            margin-bottom:4px;
-        }
-
-        .muted a,
-        .muted a:visited {
-            color: inherit;
-            text-decoration: none;
-        }
-        .muted a:hover,
-        .muted a:focus {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-        .timeline h5 a {
-            all: unset;
-            cursor: pointer;
-        }
-        .timeline h5 a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-
-        @media screen {
-            .sheet{
-                width: 100%;
-                max-width: 900px;
-                margin: 16px auto;
-                border: 1px solid #dfe3ee;
+        <style>
+            :root{
+                --ink:#0f172a;
+                --muted:#5b667a;
+                --rule:#e6e8ef;
+                --paper:#ffffff;
+                --accent:#0b3a6e;
+                --accent-2:#12497f;
             }
-        }
-
-        @media (max-width: 992px){
-            .header{
-                gap: 16px;
+            body{
+                font-family:Inter, sans-serif;
+                background:#f5f7fb;
+                color:var(--ink);
+                line-height:1.45;
+                margin:0;
             }
-            .header-left{
-                min-width: 0;
-            }
-            .avatar{
-                width:80px;
-                height:96px;
-            }
-            .body{
-                grid-template-columns: 40% 60%;
-            }
-            main{
-                padding:18px;
-            }
-            aside{
-                padding:16px;
-            }
-            .title{
-                font-size:13.5px;
-            }
-            .objective{
-                font-size:13px;
-            }
-            .contact{
-                gap:10px;
-            }
-        }
-
-        @media (max-width: 576px){
-            .header{
-                padding:14px 16px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header h1{
-                font-size: clamp(20px, 6vw, 24px);
-            }
-            .role{
-                font-size: 14px;
-            }
-            .contact{
-                font-size: 12px;
-                gap:8px;
-            }
-            .social-links{
-                flex-wrap: wrap;
-            }
-            .social-links a{
-                font-size:12px;
-                padding:4px 8px;
-            }
-            .avatar{
-                width:82px;
-                height:100px;
-            }
-
-            .body{
-                grid-template-columns: 1fr;
-            }
-            aside{
-                border-right: 0;
-                border-bottom: 1px solid var(--rule);
-                padding:14px;
-                font-size: 12.5px;
-            }
-            main{
-                padding:14px 16px;
-                font-size: 13px;
-            }
-            .timeline .item{
-                margin-bottom:14px;
-            }
-            .timeline .muted{
-                font-size:12px;
-            }
-            .chip{
-                padding:3px 8px;
-                font-size:12px;
-            }
-            .btn-print{
-                width:100%;
-            }
-        }
-
-        @media print{
             .sheet{
                 width:210mm;
                 min-height:297mm;
-                margin:0 auto;
-                border:0;
-                box-shadow:none;
+                margin:16px auto;
+                background:var(--paper);
+                border:1px solid #dfe3ee;
+                box-shadow:0 8px 30px rgba(12,20,33,.08);
+                display:flex;
+                flex-direction:column;
             }
-        }
-        @page{
-            size:A4 portrait;
-            margin:12mm;
-        }
-    </style>
-</head>
-<body>
 
-<div class="sheet">
-    <div class="header">
-        <div class="header-left">
-            <h1>VU MINH QUANG</h1>
-            <div class="role">Intern Java Backend / Java Web Developer</div>
-            <div class="contact">
-                <span><i class="bi bi-telephone"></i> 0378 554 725</span>
-                <span><i class="bi bi-envelope"></i> vminhquang05@gmail.com</span>
-                <span><i class="bi bi-geo-alt"></i> Ho Chi Minh City, Vietnam</span>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/QuangVMZu" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
-                <a href="https://www.facebook.com/quang.vu.170864?locale=vi_VN" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
-            </div>
-        </div>
-        <div class="avatar">
-            <img src="assets/anhthe.jpg" alt="Profile Photo">
-        </div>
-    </div>
+            /* HEADER */
+            .header{
+                padding:18px 24px;
+                border-bottom:3px solid var(--accent);
+                background:#fff;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                flex-wrap:wrap;
+            }
+            .header-left{
+                flex:1;
+                min-width:200px;
+            }
+            .header h1{
+                font-weight:800;
+                font-size:26px;
+                margin:0;
+            }
+            .header .role{
+                color:var(--accent);
+                font-size:15px;
+                font-weight:600;
+            }
+            .contact{
+                font-size:13px;
+                color:var(--muted);
+                margin-top:6px;
+                display:flex;
+                flex-wrap:wrap;
+                gap:16px;
+            }
 
-    <div class="body">
-        <aside>
-            <div class="side-block">
-                <div class="side-label">Education</div>
-                <div class="fw-semibold">FPT University, HCMC</div>
-                <div>Bachelor of IT – Software Engineering</div>
-                <div class="muted">Sep 2023 – Expected 2027</div>
-            </div>
+            .social-links{
+                margin-top:10px;
+                display:flex;
+                gap:12px;
+            }
+            .social-links a{
+                display:inline-flex;
+                align-items:center;
+                gap:6px;
+                font-size:13px;
+                font-weight:600;
+                color:var(--accent);
+                text-decoration:none;
+                border:1px solid var(--accent);
+                border-radius:20px;
+                padding:4px 10px;
+                transition:all .2s;
+            }
+            .social-links a:hover{
+                background:var(--accent);
+                color:#fff;
+            }
 
-            <div class="side-block">
-                <div class="side-label">Core Tech Stack</div>
-                <div>
-                    <span class="chip">Java · OOP</span>
-                    <span class="chip">Spring Boot</span>
-                    <span class="chip">Spring MVC</span>
-                    <span class="chip">Spring Security (basic)</span>
-                    <span class="chip">JPA / Hibernate</span>
-                    <span class="chip">RESTful APIs</span>
-                    <span class="chip">SQL Server · MySQL</span>
-                    <span class="chip">HTML · CSS · JavaScript</span>
-                    <span class="chip">Thymeleaf</span>
-                    <span class="chip">VNPay · GHN API</span>
-                    <span class="chip">Cloudinary</span>
-                    <span class="chip">Git / GitHub</span>
-                    <span class="chip">WordPress</span>
-                    <span class="chip">Workflow: DiaFlow</span>
+            .avatar{
+                width:90px;
+                height:108px;
+                border-radius:8px;
+                border:1px solid var(--rule);
+                overflow:hidden;
+                background:#fff;
+            }
+            .avatar img{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
+
+            /* BODY */
+            .body{
+                display:grid;
+                grid-template-columns: 32% 68%;
+                flex-grow:1;
+            }
+            aside{
+                border-right:1px solid var(--rule);
+                padding:18px;
+                font-size:13px;
+            }
+            main{
+                padding:20px 24px;
+                font-size:13.5px;
+                display:flex;
+                flex-direction:column;
+                justify-content:space-between;
+            }
+
+            .side-label{
+                font-size:11px;
+                text-transform:uppercase;
+                font-weight:700;
+                color:var(--accent);
+                margin-bottom:6px;
+                letter-spacing:.5px;
+            }
+            .side-block{
+                margin-bottom:18px;
+            }
+            .chip{
+                border:1px solid #cfd6e3;
+                border-radius:999px;
+                padding:4px 10px;
+                font-size:12px;
+                background:#f6f8fc;
+                display:inline-block;
+                margin:3px;
+                transition:all .2s ease;
+                cursor:pointer;
+            }
+            .chip:hover{
+                background:#24292f;
+                color:#fff;
+                border-color:#24292f;
+            }
+
+            .kv{
+                display:flex;
+                justify-content:space-between;
+                margin-bottom:4px;
+            }
+            .bar{
+                height:4px;
+                background:#e7ecf5;
+                border-radius:999px;
+                overflow:hidden;
+                margin-bottom:6px;
+            }
+            .bar span{
+                display:block;
+                height:100%;
+                background: linear-gradient(90deg,var(--accent),var(--accent-2));
+                border-radius:999px;
+            }
+
+            .title{
+                text-transform:uppercase;
+                font-weight:800;
+                font-size:14px;
+                margin-bottom:8px;
+                display:flex;
+                align-items:center;
+                gap:6px;
+            }
+            .title .tick{
+                width:6px;
+                height:18px;
+                background:var(--accent);
+                border-radius:2px;
+            }
+            .objective{
+                border:1px solid var(--rule);
+                border-left:4px solid var(--accent);
+                padding:10px 12px;
+                border-radius:6px;
+                background:#fff;
+                font-size:13.5px;
+            }
+
+            /* Timeline */
+            .timeline{
+                position: relative;
+                padding-left: 28px;
+            }
+            .timeline::before{
+                content: "";
+                position: absolute;
+                left: 10px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: #d7deea;
+            }
+            .timeline .item{
+                position: relative;
+                margin-bottom: 18px;
+            }
+            .timeline .dot{
+                position: absolute;
+                left: -17px;
+                top: 2px;
+                width: 12px;
+                height: 12px;
+                margin-left: -6px;
+                background: var(--accent);
+                border-radius: 50%;
+                border: 2px solid #fff;
+                box-shadow: 0 0 0 2px #d7deea;
+            }
+            .timeline h5{
+                margin:0;
+                font-size:14px;
+                font-weight:700;
+            }
+            .timeline .muted{
+                color:var(--muted);
+                font-size:12.5px;
+                margin-bottom:6px;
+            }
+            .timeline ul{
+                margin:0;
+                padding-left:16px;
+            }
+            .timeline ul li{
+                margin-bottom:4px;
+            }
+
+            .muted a,
+            .muted a:visited {
+                color: inherit;
+                text-decoration: none;
+            }
+            .muted a:hover,
+            .muted a:focus {
+                color: var(--accent);
+                text-decoration: underline;
+            }
+            .timeline h5 a {
+                all: unset;
+                cursor: pointer;
+            }
+            .timeline h5 a:hover {
+                text-decoration: underline;
+            }
+
+            /* Responsive */
+
+            @media screen {
+                .sheet{
+                    width: 100%;
+                    max-width: 900px;
+                    margin: 16px auto;
+                    border: 1px solid #dfe3ee;
+                }
+            }
+
+            @media (max-width: 992px){
+                .header{
+                    gap: 16px;
+                }
+                .header-left{
+                    min-width: 0;
+                }
+                .avatar{
+                    width:80px;
+                    height:96px;
+                }
+                .body{
+                    grid-template-columns: 40% 60%;
+                }
+                main{
+                    padding:18px;
+                }
+                aside{
+                    padding:16px;
+                }
+                .title{
+                    font-size:13.5px;
+                }
+                .objective{
+                    font-size:13px;
+                }
+                .contact{
+                    gap:10px;
+                }
+            }
+
+            @media (max-width: 576px){
+                .header{
+                    padding:14px 16px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .header h1{
+                    font-size: clamp(20px, 6vw, 24px);
+                }
+                .role{
+                    font-size: 14px;
+                }
+                .contact{
+                    font-size: 12px;
+                    gap:8px;
+                }
+                .social-links{
+                    flex-wrap: wrap;
+                }
+                .social-links a{
+                    font-size:12px;
+                    padding:4px 8px;
+                }
+                .avatar{
+                    width:82px;
+                    height:100px;
+                }
+
+                .body{
+                    grid-template-columns: 1fr;
+                }
+                aside{
+                    border-right: 0;
+                    border-bottom: 1px solid var(--rule);
+                    padding:14px;
+                    font-size: 12.5px;
+                }
+                main{
+                    padding:14px 16px;
+                    font-size: 13px;
+                }
+                .timeline .item{
+                    margin-bottom:14px;
+                }
+                .timeline .muted{
+                    font-size:12px;
+                }
+                .chip{
+                    padding:3px 8px;
+                    font-size:12px;
+                }
+                .btn-print{
+                    width:100%;
+                }
+            }
+
+            @media print{
+                .sheet{
+                    width:210mm;
+                    min-height:297mm;
+                    margin:0 auto;
+                    border:0;
+                    box-shadow:none;
+                }
+            }
+            @page{
+                size:A4 portrait;
+                margin:12mm;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="sheet">
+            <div class="header">
+                <div class="header-left">
+                    <h1>VU MINH QUANG</h1>
+                    <div class="role">Intern Java Backend / Java Web Developer</div>
+                    <div class="contact">
+                        <span><i class="bi bi-telephone"></i> 0378 554 725</span>
+                        <span><i class="bi bi-envelope"></i> vminhquang05@gmail.com</span>
+                        <span><i class="bi bi-geo-alt"></i> Ho Chi Minh City, Vietnam</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/QuangVMZu" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+                        <a href="https://www.facebook.com/quang.vu.170864?locale=vi_VN" target="_blank" rel="noopener"><i class="bi bi-facebook"></i> Facebook</a>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <img src="assets/anhthe.jpg" alt="Profile Photo">
                 </div>
             </div>
 
-            <div class="side-block">
-                <div class="side-label">Skill Levels</div>
-                <div class="kv"><span>Java / Spring</span><span>75%</span></div>
-                <div class="bar"><span style="width:75%"></span></div>
-                <div class="kv"><span>SQL (MySQL / SQL Server)</span><span>70%</span></div>
-                <div class="bar"><span style="width:70%"></span></div>
-                <div class="kv"><span>RESTful APIs</span><span>70%</span></div>
-                <div class="bar"><span style="width:70%"></span></div>
-                <div class="kv"><span>HTML / CSS / JS</span><span>65%</span></div>
-                <div class="bar"><span style="width:65%"></span></div>
-                <div class="kv"><span>Git / GitHub</span><span>60%</span></div>
-                <div class="bar"><span style="width:60%"></span></div>
-                <div class="kv"><span>WordPress</span><span>55%</span></div>
-                <div class="bar"><span style="width:55%"></span></div>
-            </div>
-
-            <div class="side-block">
-                <div class="side-label">Certificates & Languages</div>
-                <ul class="muted mb-0">
-                    <li>Coursera: Java Core, PHP, HTML/CSS/JavaScript, Soft Skills, UI/UX basics</li>
-                    <li>CCNA: Cisco Certified Network Associate (fundamentals)</li>
-                    <li>English: <strong>B2</strong> · Japanese: <strong>Basic</strong></li>
-                </ul>
-            </div>
-
-            <div class="side-block">
-                <div class="side-label">Soft Skills</div>
-                <div>
-                    <span class="chip">Teamwork</span>
-                    <span class="chip">Communication</span>
-                    <span class="chip">Problem-solving</span>
-                    <span class="chip">Responsibility</span>
-                    <span class="chip">Self-learning</span>
-                </div>
-            </div>
-        </aside>
-
-        <main>
-            <div>
-                <section class="mb-4">
-                    <div class="title"><span class="tick"></span>Objective</div>
-                    <div class="objective">
-                        Third-year Software Engineering student at FPT University focusing on Java backend (Spring Boot, Spring MVC, SQL).
-                        I am looking for a 3–6 month Java Backend / Java Web internship where I can work with real projects,
-                        build REST APIs, integrate payments and external services, and learn from experienced engineers.
-                        I enjoy clean, maintainable code, collaborating in teams, and I am ready to commit fully during the internship.
+            <div class="body">
+                <aside>
+                    <div class="side-block">
+                        <div class="side-label">Education</div>
+                        <div class="fw-semibold">FPT University, HCMC</div>
+                        <div>Bachelor of IT – Software Engineering</div>
+                        <div class="muted">Sep 2023 – Expected 2027</div>
                     </div>
-                </section>
 
-                <section>
-                    <div class="title mb-3"><span class="tick"></span>Projects & Experience</div>
-                    <div class="timeline">
-
-                        <!-- EV Charging Management -->
-                        <div class="item">
-                            <span class="dot"></span>
-                            <h5>
-                                <a href="https://github.com/hoaibao1102/EV_Charging_Station_Management_System_SWP391" target="_blank">
-                                    EV Charging Management — EV Management (FPTU)
-                                </a>
-                            </h5>
-                            <div class="muted">
-                                Spring Boot · Spring Security · JPA · SQL Server · JWT · Cloudinary · VNPay
-                            </div>
-                            <ul>
-                                <li>Implemented layered backend (Controller → Service → Repository) with role-based access for Driver / Staff / Admin.</li>
-                                <li>Built JWT authentication with refresh tokens, OTP registration, and transactional booking logic for stations & slots.</li>
-                                <li>Integrated VNPay payment flow and Cloudinary image storage, plus admin APIs for revenue and usage statistics.</li>
-                            </ul>
+                    <div class="side-block">
+                        <div class="side-label">Core Tech Stack</div>
+                        <div>
+                            <span class="chip">Java · OOP</span>
+                            <span class="chip">Spring Boot</span>
+                            <span class="chip">Spring MVC</span>
+                            <span class="chip">Spring Security (basic)</span>
+                            <span class="chip">JPA / Hibernate</span>
+                            <span class="chip">RESTful APIs</span>
+                            <span class="chip">SQL Server · MySQL</span>
+                            <span class="chip">HTML · CSS · JavaScript</span>
+                            <span class="chip">Thymeleaf</span>
+                            <span class="chip">VNPay · GHN API</span>
+                            <span class="chip">Cloudinary</span>
+                            <span class="chip">Git / GitHub</span>
+                            <span class="chip">WordPress</span>
+                            <span class="chip">Workflow: DiaFlow</span>
                         </div>
-
-                        <!-- FruitMarket -->
-                        <div class="item">
-                            <span class="dot"></span>
-                            <h5>
-                                <a href="https://github.com/MinhKhang17/FruitMarket" target="_blank">
-                                    Fruit-Commerce Platform — FruitMarket (FPTU)
-                                </a>
-                            </h5>
-                            <div class="muted">
-                                Spring MVC · Thymeleaf · JPA · SQL Server · VNPay · GHN API
-                            </div>
-                            <ul>
-                                <li>Developed 20+ admin features for product, variant, promotion, and order management with server-side rendering.</li>
-                                <li>Optimized JPA queries (indexes, custom JPQL, reduced N+1) → improved key page load time by ~25%.</li>
-                                <li>Implemented checkout flow using VNPay and automated shipping creation via GHN API after successful payment.</li>
-                            </ul>
-                        </div>
-
-                        <!-- BQT Store -->
-                        <div class="item">
-                            <span class="dot"></span>
-                            <h5>
-                                <a href="https://github.com/QuangVMZu/BQT_STORE" target="_blank">
-                                    E-commerce Website — BQT Store (FPTU)
-                                </a>
-                            </h5>
-                            <div class="muted">
-                                Java Servlets · JSP · HTML/CSS/JS · SQL Server · Maven
-                            </div>
-                            <ul>
-                                <li>Led a 3-member team to design database schema, build core e-commerce features (auth, cart, checkout, admin CRUD).</li>
-                                <li>Implemented manual MVC with Servlets/JSP, session-based authentication, and reusable JSP layouts.</li>
-                                <li>Managed Git/GitHub workflow and deployed the application to VPS with proper configuration.</li>
-                            </ul>
-                        </div>
-
-                        <!-- SGV 38 -->
-                        <div class="item">
-                            <span class="dot"></span>
-                            <h5>
-                                <a href="https://sgv38.vn" target="_blank">
-                                    Online Sales & Inventory — SGV 38 (Freelance)
-                                </a>
-                            </h5>
-                            <div class="muted">
-                                Spring MVC · Java Servlets · SQL Server
-                            </div>
-                            <ul>
-                                <li>Built backend for product & inventory management (100+ items) and order workflows for a real client.</li>
-                                <li>Developed internal dashboard summarizing sales, stock alerts, and customer support activities.</li>
-                                <li>Created dynamic content APIs (banners, promotions), helping increase user engagement by ~20%.</li>
-                            </ul>
-                        </div>
-
-                        <!-- DiaFlow -->
-                        <div class="item">
-                            <span class="dot"></span>
-                            <h5>
-                                <a href="https://www.diaflow.io/careers" target="_blank">
-                                    Part-time — DiaFlow (Workflow Builder & QA)
-                                </a>
-                            </h5>
-                            <div class="muted">Workflow automation · QA testing · Product thinking</div>
-                            <ul>
-                                <li>Configured no-code workflow automations based on business requirements (approvals, notifications, CRM flows).</li>
-                                <li>Designed and executed test scenarios for new features, reporting issues and edge cases to the engineering team.</li>
-                                <li>Collaborated with cross-functional teams to improve UX and standardize default workflow templates.</li>
-                            </ul>
-                        </div>
-
                     </div>
-                </section>
-            </div>
-        </main>
-    </div>
-</div>
 
-</body>
+                    <div class="side-block">
+                        <div class="side-label">Skill Levels</div>
+                        <div class="kv"><span>Java / Spring</span><span>75%</span></div>
+                        <div class="bar"><span style="width:75%"></span></div>
+                        <div class="kv"><span>SQL (MySQL / SQL Server)</span><span>70%</span></div>
+                        <div class="bar"><span style="width:70%"></span></div>
+                        <div class="kv"><span>RESTful APIs</span><span>70%</span></div>
+                        <div class="bar"><span style="width:70%"></span></div>
+                        <div class="kv"><span>HTML / CSS / JS</span><span>65%</span></div>
+                        <div class="bar"><span style="width:65%"></span></div>
+                        <div class="kv"><span>Git / GitHub</span><span>60%</span></div>
+                        <div class="bar"><span style="width:60%"></span></div>
+                        <div class="kv"><span>WordPress</span><span>55%</span></div>
+                        <div class="bar"><span style="width:55%"></span></div>
+                    </div>
+
+                    <div class="side-block">
+                        <div class="side-label">Certificates & Languages</div>
+                        <ul class="muted mb-0">
+                            <li>Coursera: Java Core, PHP, HTML/CSS/JavaScript, Soft Skills, UI/UX basics</li>
+                            <li>CCNA: Cisco Certified Network Associate (fundamentals)</li>
+                            <li>English: <strong>B2</strong> · Japanese: <strong>Basic</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="side-block">
+                        <div class="side-label">Soft Skills</div>
+                        <div>
+                            <span class="chip">Teamwork</span>
+                            <span class="chip">Communication</span>
+                            <span class="chip">Problem-solving</span>
+                            <span class="chip">Responsibility</span>
+                            <span class="chip">Self-learning</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <main>
+                    <div>
+                        <section class="mb-4">
+                            <div class="title"><span class="tick"></span>Objective</div>
+                            <div class="objective">
+                                Third-year Software Engineering student at FPT University focusing on Java backend (Spring Boot, Spring MVC, SQL).
+                                I am looking for a 3–6 month Java Backend / Java Web internship where I can work with real projects,
+                                build REST APIs, integrate payments and external services, and learn from experienced engineers.
+                                I enjoy clean, maintainable code, collaborating in teams, and I am ready to commit fully during the internship.
+                            </div>
+                        </section>
+
+                        <section>
+                            <div class="title mb-3"><span class="tick"></span>Projects & Experience</div>
+                            <div class="timeline">
+
+                                <!-- EV Charging Management -->
+                                <div class="item">
+                                    <span class="dot"></span>
+                                    <h5>
+                                        <a href="https://github.com/hoaibao1102/EV_Charging_Station_Management_System_SWP391" target="_blank">
+                                            EV Charging Management — EV Management (FPTU)
+                                        </a>
+                                    </h5>
+                                    <div class="muted">
+                                        Spring Boot · Spring Security · JPA · SQL Server · JWT · Cloudinary · VNPay
+                                    </div>
+                                    <ul>
+                                        <li>Implemented layered backend (Controller → Service → Repository) with role-based access for Driver / Staff / Admin.</li>
+                                        <li>Built JWT authentication with refresh tokens, OTP registration, and transactional booking logic for stations & slots.</li>
+                                        <li>Integrated VNPay payment flow and Cloudinary image storage, plus admin APIs for revenue and usage statistics.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- FruitMarket -->
+                                <div class="item">
+                                    <span class="dot"></span>
+                                    <h5>
+                                        <a href="https://github.com/MinhKhang17/FruitMarket" target="_blank">
+                                            Fruit-Commerce Platform — FruitMarket (FPTU)
+                                        </a>
+                                    </h5>
+                                    <div class="muted">
+                                        Spring MVC · Thymeleaf · JPA · SQL Server · VNPay · GHN API
+                                    </div>
+                                    <ul>
+                                        <li>Developed 20+ admin features for product, variant, promotion, and order management with server-side rendering.</li>
+                                        <li>Optimized JPA queries (indexes, custom JPQL, reduced N+1) → improved key page load time by ~25%.</li>
+                                        <li>Implemented checkout flow using VNPay and automated shipping creation via GHN API after successful payment.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- BQT Store -->
+                                <div class="item">
+                                    <span class="dot"></span>
+                                    <h5>
+                                        <a href="https://github.com/QuangVMZu/BQT_STORE" target="_blank">
+                                            E-commerce Website — BQT Store (FPTU)
+                                        </a>
+                                    </h5>
+                                    <div class="muted">
+                                        Java Servlets · JSP · HTML/CSS/JS · SQL Server · Maven
+                                    </div>
+                                    <ul>
+                                        <li>Led a 3-member team to design database schema, build core e-commerce features (auth, cart, checkout, admin CRUD).</li>
+                                        <li>Implemented manual MVC with Servlets/JSP, session-based authentication, and reusable JSP layouts.</li>
+                                        <li>Managed Git/GitHub workflow and deployed the application to VPS with proper configuration.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- SGV 38 -->
+                                <div class="item">
+                                    <span class="dot"></span>
+                                    <h5>
+                                        <a href="https://sgv38.vn" target="_blank">
+                                            Online Sales & Inventory — SGV 38 (Freelance)
+                                        </a>
+                                    </h5>
+                                    <div class="muted">
+                                        Spring MVC · Java Servlets · SQL Server
+                                    </div>
+                                    <ul>
+                                        <li>Built backend for product & inventory management (100+ items) and order workflows for a real client.</li>
+                                        <li>Developed internal dashboard summarizing sales, stock alerts, and customer support activities.</li>
+                                        <li>Created dynamic content APIs (banners, promotions), helping increase user engagement by ~20%.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- DiaFlow -->
+                                <div class="item">
+                                    <span class="dot"></span>
+                                    <h5>
+                                        <a href="https://www.diaflow.io/careers" target="_blank">
+                                            Part-time — DiaFlow (Workflow Builder & QA)
+                                        </a>
+                                    </h5>
+                                    <div class="muted">Workflow automation · QA testing · Product thinking</div>
+                                    <ul>
+                                        <li>Configured no-code workflow automations based on business requirements (approvals, notifications, CRM flows).</li>
+                                        <li>Designed and executed test scenarios for new features, reporting issues and edge cases to the engineering team.</li>
+                                        <li>Collaborated with cross-functional teams to improve UX and standardize default workflow templates.</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+    </body>
 </html>
