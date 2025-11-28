@@ -269,6 +269,14 @@
                 color: var(--accent);  /* khi hover thì ra xanh navy */
                 text-decoration: underline; /* gạch chân khi hover (tùy thích) */
             }
+			.timeline h5 a {
+				all: unset;          /* reset toàn bộ style, giữ nguyên như <h5> ban đầu */
+				cursor: pointer;     /* thêm lại con trỏ */
+			}
+
+			.timeline h5 a:hover {
+				text-decoration: underline;   /* nếu muốn */
+			}
 
             /* ====== Responsive tweaks ====== */
 
